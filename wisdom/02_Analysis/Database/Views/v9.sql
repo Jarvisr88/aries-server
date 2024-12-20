@@ -1,0 +1,1 @@
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `c01`.`view_pricecode` AS select sql_small_result `c01`.`tbl_pricecode`.`ID` AS `ID`,`c01`.`tbl_pricecode`.`Name` AS `Name`,if((`c01`.`tbl_pricecode`.`Name` like '%RETAIL%'),1,0) AS `IsRetail` from `c01`.`tbl_pricecode`

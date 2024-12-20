@@ -1,0 +1,677 @@
+[
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_ability_eligibility_payer",
+    "suggested_new_name": "ability_eligibility_payers"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_doctor",
+    "suggested_new_name": "doctors"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_doctortype",
+    "suggested_new_name": "doctortypes"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_icd10",
+    "suggested_new_name": "icd10s"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_icd9",
+    "suggested_new_name": "icd9s"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_insurancecompany",
+    "suggested_new_name": "insurancecompanys"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_insurancecompanytype",
+    "suggested_new_name": "insurancecompanytypes"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_insurancecompanytype_category",
+    "suggested_new_name": "insurancecompanytype_categorys"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_insurancecompanytype_region",
+    "suggested_new_name": "insurancecompanytype_regions"
+  },
+  {
+    "table_schema": "dmeworks",
+    "table_name": "tbl_insurancecompanytype_subcategory",
+    "suggested_new_name": "insurancecompanytype_subcategorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "ability_eligibility_request",
+    "suggested_new_name": "ability_eligibility_requests"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "alembic_version",
+    "suggested_new_name": "alembic_versions"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "appointment",
+    "suggested_new_name": "appointments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "appointment_reminder",
+    "suggested_new_name": "appointment_reminders"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "appointment_type",
+    "suggested_new_name": "appointment_types"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "audit_action_type",
+    "suggested_new_name": "audit_action_types"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "audit_log",
+    "suggested_new_name": "audit_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "audit_logs",
+    "suggested_new_name": "audit_logss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "authorization_types",
+    "suggested_new_name": "authorization_typess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "backup_log",
+    "suggested_new_name": "backup_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "batch_log",
+    "suggested_new_name": "batch_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "batch_status",
+    "suggested_new_name": "batch_statuss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "batchpayment",
+    "suggested_new_name": "batchpayments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "billing_codes",
+    "suggested_new_name": "billing_codess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "billingtype",
+    "suggested_new_name": "billingtypes"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "changes",
+    "suggested_new_name": "changess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "claim_line_items",
+    "suggested_new_name": "claim_line_itemss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "claim_status_history",
+    "suggested_new_name": "claim_status_historys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "claims",
+    "suggested_new_name": "claimss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "cmnform",
+    "suggested_new_name": "cmnforms"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "cmnform_0404b",
+    "suggested_new_name": "cmnform_0404bs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "cmnform_0484",
+    "suggested_new_name": "cmnform_0484s"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "communication_log",
+    "suggested_new_name": "communication_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "companies",
+    "suggested_new_name": "companiess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "compliance_audit",
+    "suggested_new_name": "compliance_audits"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "compliance_audit_item",
+    "suggested_new_name": "compliance_audit_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "compliance_checklist",
+    "suggested_new_name": "compliance_checklists"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "compliance_checklist_item",
+    "suggested_new_name": "compliance_checklist_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "configuration_audit",
+    "suggested_new_name": "configuration_audits"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "configuration_category",
+    "suggested_new_name": "configuration_categorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "configuration_setting",
+    "suggested_new_name": "configuration_settings"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer",
+    "suggested_new_name": "customers"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_address",
+    "suggested_new_name": "customer_addresss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_addresses",
+    "suggested_new_name": "customer_addressess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_contact",
+    "suggested_new_name": "customer_contacts"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_doctors",
+    "suggested_new_name": "customer_doctorss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_document",
+    "suggested_new_name": "customer_documents"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_facilities",
+    "suggested_new_name": "customer_facilitiess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_feedback",
+    "suggested_new_name": "customer_feedbacks"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_insurance",
+    "suggested_new_name": "customer_insurances"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_insurances",
+    "suggested_new_name": "customer_insurancess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_note",
+    "suggested_new_name": "customer_notes"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customer_order",
+    "suggested_new_name": "customer_orders"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "customers",
+    "suggested_new_name": "customerss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "delivery_schedules",
+    "suggested_new_name": "delivery_scheduless"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "department",
+    "suggested_new_name": "departments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "doctor",
+    "suggested_new_name": "doctors"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "doctors",
+    "suggested_new_name": "doctorss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "document_type",
+    "suggested_new_name": "document_types"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "employee",
+    "suggested_new_name": "employees"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "employee_role",
+    "suggested_new_name": "employee_roles"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "employee_role_assignment",
+    "suggested_new_name": "employee_role_assignments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "employee_schedule",
+    "suggested_new_name": "employee_schedules"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "equipment",
+    "suggested_new_name": "equipments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "equipment_maintenance",
+    "suggested_new_name": "equipment_maintenances"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "equipment_type",
+    "suggested_new_name": "equipment_types"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "facilities",
+    "suggested_new_name": "facilitiess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "feedback_category",
+    "suggested_new_name": "feedback_categorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "insurance_companies",
+    "suggested_new_name": "insurance_companiess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "insurance_company",
+    "suggested_new_name": "insurance_companys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "insurance_fee_schedules",
+    "suggested_new_name": "insurance_fee_scheduless"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "insurance_plans",
+    "suggested_new_name": "insurance_planss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "integration_endpoint",
+    "suggested_new_name": "integration_endpoints"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "integration_log",
+    "suggested_new_name": "integration_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "integration_mapping",
+    "suggested_new_name": "integration_mappings"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "integration_schedule",
+    "suggested_new_name": "integration_schedules"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "inventory",
+    "suggested_new_name": "inventorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "inventory_categories",
+    "suggested_new_name": "inventory_categoriess"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "inventory_items",
+    "suggested_new_name": "inventory_itemss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "inventory_transaction",
+    "suggested_new_name": "inventory_transactions"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "invoice",
+    "suggested_new_name": "invoices"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "invoice_item",
+    "suggested_new_name": "invoice_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "kb_article",
+    "suggested_new_name": "kb_articles"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "kb_article_feedback",
+    "suggested_new_name": "kb_article_feedbacks"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "kb_category",
+    "suggested_new_name": "kb_categorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_checklist",
+    "suggested_new_name": "maintenance_checklists"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_checklist_item",
+    "suggested_new_name": "maintenance_checklist_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_log",
+    "suggested_new_name": "maintenance_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_log_item",
+    "suggested_new_name": "maintenance_log_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_logs",
+    "suggested_new_name": "maintenance_logss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_schedule",
+    "suggested_new_name": "maintenance_schedules"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "maintenance_schedules",
+    "suggested_new_name": "maintenance_scheduless"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "manufacturers",
+    "suggested_new_name": "manufacturerss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "metric_type",
+    "suggested_new_name": "metric_types"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "notification",
+    "suggested_new_name": "notifications"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "notification_template",
+    "suggested_new_name": "notification_templates"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "order_details",
+    "suggested_new_name": "order_detailss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "order_item",
+    "suggested_new_name": "order_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "order_status",
+    "suggested_new_name": "order_statuss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "order_status_history",
+    "suggested_new_name": "order_status_historys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "order_tracking",
+    "suggested_new_name": "order_trackings"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "orders",
+    "suggested_new_name": "orderss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "payment",
+    "suggested_new_name": "payments"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "payment_adjustments",
+    "suggested_new_name": "payment_adjustmentss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "payment_method",
+    "suggested_new_name": "payment_methods"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "payments",
+    "suggested_new_name": "paymentss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "performance_log",
+    "suggested_new_name": "performance_logs"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "permissions",
+    "suggested_new_name": "permissionss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "quality_checklist",
+    "suggested_new_name": "quality_checklists"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "quality_checklist_item",
+    "suggested_new_name": "quality_checklist_items"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "quality_inspection",
+    "suggested_new_name": "quality_inspections"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "report_definition",
+    "suggested_new_name": "report_definitions"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "report_execution",
+    "suggested_new_name": "report_executions"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "report_schedule",
+    "suggested_new_name": "report_schedules"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "role_permissions",
+    "suggested_new_name": "role_permissionss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "roles",
+    "suggested_new_name": "roless"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "service_history",
+    "suggested_new_name": "service_historys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "service_request",
+    "suggested_new_name": "service_requests"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "shipping_methods",
+    "suggested_new_name": "shipping_methodss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "stock_items",
+    "suggested_new_name": "stock_itemss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "system_configs",
+    "suggested_new_name": "system_configss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "system_metric",
+    "suggested_new_name": "system_metrics"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "task",
+    "suggested_new_name": "tasks"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "task_category",
+    "suggested_new_name": "task_categorys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "task_priority",
+    "suggested_new_name": "task_prioritys"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "user_roles",
+    "suggested_new_name": "user_roless"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "users",
+    "suggested_new_name": "userss"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "warehouse",
+    "suggested_new_name": "warehouses"
+  },
+  {
+    "table_schema": "public",
+    "table_name": "warehouses",
+    "suggested_new_name": "warehousess"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_batches",
+    "suggested_new_name": "batchess"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_certificates",
+    "suggested_new_name": "certificatess"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_companies",
+    "suggested_new_name": "companiess"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_globals",
+    "suggested_new_name": "globalss"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_regions",
+    "suggested_new_name": "regionss"
+  },
+  {
+    "table_schema": "repository",
+    "table_name": "tbl_variables",
+    "suggested_new_name": "variabless"
+  }
+]

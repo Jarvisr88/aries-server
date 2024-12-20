@@ -1,0 +1,1 @@
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `c01`.`view_sequence` AS select ((16 * `s2`.`num`) + `s1`.`num`) AS `num` from (`c01`.`view_sequence_core` `s1` join `c01`.`view_sequence_core` `s2`)

@@ -1,0 +1,1 @@
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `c01`.`tbl_zipcode` AS select `dmeworks`.`tbl_zipcode`.`Zip` AS `Zip`,`dmeworks`.`tbl_zipcode`.`State` AS `State`,`dmeworks`.`tbl_zipcode`.`City` AS `City` from `dmeworks`.`tbl_zipcode`

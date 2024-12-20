@@ -1,0 +1,1 @@
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `c01`.`tbl_insurancecompanytype` AS select `dmeworks`.`tbl_insurancecompanytype`.`ID` AS `ID`,`dmeworks`.`tbl_insurancecompanytype`.`Name` AS `Name` from `dmeworks`.`tbl_insurancecompanytype`

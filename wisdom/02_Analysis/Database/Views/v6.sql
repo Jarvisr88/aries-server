@@ -1,0 +1,1 @@
+CREATE ALGORITHM=MERGE DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `c01`.`tbl_doctortype` AS select `dmeworks`.`tbl_doctortype`.`ID` AS `ID`,`dmeworks`.`tbl_doctortype`.`Name` AS `Name`,`dmeworks`.`tbl_doctortype`.`LastUpdateUserID` AS `LastUpdateUserID`,`dmeworks`.`tbl_doctortype`.`LastUpdateDatetime` AS `LastUpdateDatetime` from `dmeworks`.`tbl_doctortype`

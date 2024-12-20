@@ -1,0 +1,734 @@
+[
+  {
+    "table_name": "c01.tbl_ability_eligibility_request",
+    "column_count": "9",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_ability_eligibility_request\n\nCREATE TABLE c01.tbl_ability_eligibility_request (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    customerinsuranceid integer NOT NULL,    requesttime timestamp without time zone NOT NULL,    requesttext text NOT NULL,    responsetime timestamp without time zone,    responsetext text,    submissiontime timestamp without time zone,    submissiontext text\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_audit_log",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_audit_log\n\nCREATE TABLE c01.tbl_audit_log (\n    id integer NOT NULL PRIMARY KEY,    tablename character varying(50) NOT NULL,    recordid integer NOT NULL,    action character varying(10) NOT NULL,    changedetails text NOT NULL,    userid integer NOT NULL,    changedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_authorizationtype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_authorizationtype\n\nCREATE TABLE c01.tbl_authorizationtype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_batch_log",
+    "column_count": "10",
+    "description": "Logging of batch process executions",
+    "create_statement": "-- Table: c01.tbl_batch_log\n\nCREATE TABLE c01.tbl_batch_log (\n    id integer NOT NULL PRIMARY KEY,    batchid character varying(50) NOT NULL,    processname character varying(100) NOT NULL,    starttime timestamp without time zone NOT NULL,    endtime timestamp without time zone,    recordsprocessed integer NOT NULL,    status character varying(20) NOT NULL,    errormessage text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_batch_status",
+    "column_count": "7",
+    "description": "Current status of batch processes",
+    "create_statement": "-- Table: c01.tbl_batch_status\n\nCREATE TABLE c01.tbl_batch_status (\n    id integer NOT NULL PRIMARY KEY,    batchid character varying(50) NOT NULL,    status character varying(20) NOT NULL,    message text,    createdat timestamp without time zone NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_batchpayment",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_batchpayment\n\nCREATE TABLE c01.tbl_batchpayment (\n    id integer NOT NULL PRIMARY KEY,    insurancecompanyid integer NOT NULL,    checknumber character varying(14) NOT NULL,    checkdate date NOT NULL,    checkamount numeric(18,2) NOT NULL,    amountused numeric(18,2) NOT NULL,    lastupdateuserid smallint NOT NULL,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_billingtype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_billingtype\n\nCREATE TABLE c01.tbl_billingtype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_changes",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_changes\n\nCREATE TABLE c01.tbl_changes (\n    tablename character varying(64) NOT NULL PRIMARY KEY,    sessionid integer NOT NULL,    lastupdateuserid smallint NOT NULL,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform",
+    "column_count": "25",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform\n\nCREATE TABLE c01.tbl_cmnform (\n    id integer NOT NULL PRIMARY KEY,    cmntype c01.cmn_type_enum NOT NULL,    initialdate date,    reviseddate date,    recertificationdate date,    customerid integer,    customer_icd9_1 character varying(8),    customer_icd9_2 character varying(8),    customer_icd9_3 character varying(8),    customer_icd9_4 character varying(8),    doctorid integer,    postypeid integer,    facilityid integer,    answeringname character varying(50) NOT NULL,    answeringtitle character varying(50) NOT NULL,    answeringemployer character varying(50) NOT NULL,    estimatedlengthofneed integer NOT NULL,    signature_name character varying(50) NOT NULL,    signature_date date,    onfile boolean NOT NULL,    orderid integer,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    mir text NOT NULL,    customer_usingicd10 boolean NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0102a",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0102a\n\nCREATE TABLE c01.tbl_cmnform_0102a (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL,    answer6 answer_enum NOT NULL,    answer7 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0102b",
+    "column_count": "18",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0102b\n\nCREATE TABLE c01.tbl_cmnform_0102b (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer12 answer_enum NOT NULL,    answer13 answer_enum NOT NULL,    answer14 answer_enum NOT NULL,    answer15 answer_enum NOT NULL,    answer16 answer_enum NOT NULL,    answer19 answer_enum NOT NULL,    answer20 answer_enum NOT NULL,    answer21_ulcer1_stage character varying(30),    answer21_ulcer1_maxlength double precision,    answer21_ulcer1_maxwidth double precision,    answer21_ulcer2_stage character varying(30),    answer21_ulcer2_maxlength double precision,    answer21_ulcer2_maxwidth double precision,    answer21_ulcer3_stage character varying(30),    answer21_ulcer3_maxlength double precision,    answer21_ulcer3_maxwidth double precision,    answer22 stage_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0203a",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0203a\n\nCREATE TABLE c01.tbl_cmnform_0203a (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 integer,    answer6 answer_enum NOT NULL,    answer7 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0203b",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0203b\n\nCREATE TABLE c01.tbl_cmnform_0203b (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 integer,    answer8 answer_enum NOT NULL,    answer9 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0302",
+    "column_count": "3",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0302\n\nCREATE TABLE c01.tbl_cmnform_0302 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer12 integer,    answer14 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0403b",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0403b\n\nCREATE TABLE c01.tbl_cmnform_0403b (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0403c",
+    "column_count": "13",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0403c\n\nCREATE TABLE c01.tbl_cmnform_0403c (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer6a answer_enum NOT NULL,    answer6b integer NOT NULL,    answer7a answer_enum NOT NULL,    answer7b integer NOT NULL,    answer8 answer_enum NOT NULL,    answer9a answer_enum NOT NULL,    answer9b integer NOT NULL,    answer10a answer_enum NOT NULL,    answer10b integer NOT NULL,    answer10c integer NOT NULL,    answer11a answer_enum NOT NULL,    answer11b integer NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0404b",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0404b\n\nCREATE TABLE c01.tbl_cmnform_0404b (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0404c",
+    "column_count": "12",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0404c\n\nCREATE TABLE c01.tbl_cmnform_0404c (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer6 answer_enum NOT NULL,    answer7a answer_enum NOT NULL,    answer7b character varying(10),    answer8 answer_enum NOT NULL,    answer9a answer_enum NOT NULL,    answer9b character varying(10),    answer10a answer_enum NOT NULL,    answer10b character varying(10),    answer10c character varying(10),    answer11 answer_enum NOT NULL,    answer12 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0602b",
+    "column_count": "14",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0602b\n\nCREATE TABLE c01.tbl_cmnform_0602b (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 date,    answer3 answer_enum NOT NULL,    answer4 integer,    answer5 stage_enum NOT NULL,    answer6 answer_enum NOT NULL,    answer7 answer_enum NOT NULL,    answer8_begun date,    answer8_ended date,    answer9 date,    answer10 stage_enum NOT NULL,    answer11 answer_enum NOT NULL,    answer12 stage_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0603b",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0603b\n\nCREATE TABLE c01.tbl_cmnform_0603b (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 integer,    answer3 stage_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL,    answer6 date\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0702a",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0702a\n\nCREATE TABLE c01.tbl_cmnform_0702a (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0702b",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0702b\n\nCREATE TABLE c01.tbl_cmnform_0702b (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer6 answer_enum NOT NULL,    answer7 answer_enum NOT NULL,    answer8 answer_enum NOT NULL,    answer12 answer_enum NOT NULL,    answer13 answer_enum NOT NULL,    answer14 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0703a",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0703a\n\nCREATE TABLE c01.tbl_cmnform_0703a (\n    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3 answer_enum NOT NULL,    answer4 answer_enum NOT NULL,    answer5 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0802",
+    "column_count": "19",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0802\n\nCREATE TABLE c01.tbl_cmnform_0802 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1_hcpcs character varying(5) NOT NULL,    answer1_mg integer,    answer1_times integer,    answer2_hcpcs character varying(5) NOT NULL,    answer2_mg integer,    answer2_times integer,    answer3_hcpcs character varying(5) NOT NULL,    answer3_mg integer,    answer3_times integer,    answer4 answer_enum NOT NULL,    answer5_1 stage_enum NOT NULL,    answer5_2 stage_enum NOT NULL,    answer5_3 stage_enum NOT NULL,    answer8 character varying(60) NOT NULL,    answer9 character varying(20) NOT NULL,    answer10 character varying(2) NOT NULL,    answer11 date,    answer12 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0902",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0902\n\nCREATE TABLE c01.tbl_cmnform_0902 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 stage_enum NOT NULL,    answer2 character varying(50) NOT NULL,    answer3 character varying(50) NOT NULL,    answer4 stage_enum NOT NULL,    answer5 stage_enum NOT NULL,    answer6 integer NOT NULL,    answer7 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_0903",
+    "column_count": "9",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_0903\n\nCREATE TABLE c01.tbl_cmnform_0903 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1a character varying(10),    answer1b character varying(10),    answer1c character varying(10),    answer2a character varying(50),    answer2b character varying(50),    answer2c character varying(50),    answer3 stage_enum NOT NULL,    answer4 stage_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_1003",
+    "column_count": "19",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_1003\n\nCREATE TABLE c01.tbl_cmnform_1003 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1 answer_enum NOT NULL,    answer2 answer_enum NOT NULL,    answer3a character varying(10),    answer3b character varying(10),    answer4a integer,    answer4b integer,    answer5 stage_enum NOT NULL,    answer6 integer,    answer7 answer_enum NOT NULL,    answer8a integer,    answer8b integer,    answer8c integer,    answer8d integer,    answer8e integer,    answer8f integer,    answer8g integer,    answer8h integer,    answer9 stage_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_4842",
+    "column_count": "19",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_4842\n\nCREATE TABLE c01.tbl_cmnform_4842 (\n    cmnformid integer NOT NULL REFERENCES c01.tbl_cmnform(id),    cmnformid integer NOT NULL PRIMARY KEY,    answer1a integer,    answer1b integer,    answer1c date,    answer2 answer_enum NOT NULL,    answer3 stage_enum NOT NULL,    physicianaddress character varying(50) NOT NULL,    physiciancity character varying(50) NOT NULL,    physicianstate character varying(50) NOT NULL,    physicianzip character varying(50) NOT NULL,    physicianname character varying(50) NOT NULL,    answer5 answer_enum NOT NULL,    answer6 character varying(10),    answer7a integer,    answer7b integer,    answer7c date,    answer8 answer_enum NOT NULL,    answer9 answer_enum NOT NULL,    answer10 answer_enum NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_drorder",
+    "column_count": "3",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_drorder\n\nCREATE TABLE c01.tbl_cmnform_drorder (\n    cmnformid integer NOT NULL PRIMARY KEY,    prognosis character varying(50) NOT NULL,    medicaljustification text NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_cmnform_uro",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_cmnform_uro\n\nCREATE TABLE c01.tbl_cmnform_uro (\n    cmnformid integer NOT NULL PRIMARY KEY,    prognosis character varying(50) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_company",
+    "column_count": "49",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_company\n\nCREATE TABLE c01.tbl_company (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    federaltaxid character varying(9) NOT NULL,    taxonomycode character varying(20) NOT NULL,    ein character varying(20) NOT NULL,    ssn character varying(20) NOT NULL,    taxidtype tax_id_type_enum NOT NULL,    npi character varying(10),    zirmednumber character varying(20) NOT NULL,    availitynumber character varying(50) NOT NULL,    participatingprovider boolean NOT NULL,    poauthorizationcodereqiered boolean NOT NULL,    print_pricesonorders boolean NOT NULL,    print_companyinfooninvoice boolean NOT NULL,    print_companyinfoondelivery boolean NOT NULL,    print_companyinfoonpickup boolean NOT NULL,    systemgenerate_blanketassignments boolean NOT NULL,    systemgenerate_cappedrentalletters boolean NOT NULL,    systemgenerate_customeraccountnumbers boolean NOT NULL,    systemgenerate_deliverypickuptickets boolean NOT NULL,    systemgenerate_droctorsorder boolean NOT NULL,    systemgenerate_hippaforms boolean NOT NULL,    systemgenerate_patientbillofrights boolean NOT NULL,    systemgenerate_purchaseordernumber boolean NOT NULL,    billcustomercopayupfront boolean NOT NULL,    writeoffdifference boolean NOT NULL,    show_inactivecustomers boolean NOT NULL,    show_quantityonhand boolean NOT NULL,    use_icd10fornewcmnrx boolean NOT NULL,    automaticallyreorderinventory boolean NOT NULL,    includelocationinfo boolean NOT NULL,    picture bytea,    postypeid integer,    warehouseid integer,    taxrateid integer,    ordersurveyid integer,    imagingserver character varying(250),    abilityintegrationsettings text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_companytype",
+    "column_count": "5",
+    "description": "Stores different types of companies",
+    "create_statement": "-- Table: c01.tbl_companytype\n\nCREATE TABLE c01.tbl_companytype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    description text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_compliance",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_compliance\n\nCREATE TABLE c01.tbl_compliance (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL REFERENCES c01.tbl_order(customerid),    orderid integer REFERENCES c01.tbl_order(id),    deliverydate date NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_compliance_items",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_compliance_items\n\nCREATE TABLE c01.tbl_compliance_items (\n    complianceid integer NOT NULL REFERENCES c01.tbl_compliance(id),    inventoryitemid integer NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_compliance_notes",
+    "column_count": "9",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_compliance_notes\n\nCREATE TABLE c01.tbl_compliance_notes (\n    id integer NOT NULL PRIMARY KEY,    complianceid integer NOT NULL REFERENCES c01.tbl_compliance(id),    date date NOT NULL,    done boolean NOT NULL,    notes text NOT NULL,    createdbyuserid smallint,    assignedtouserid smallint,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_customer",
+    "column_count": "104",
+    "description": "Stores customer/patient information",
+    "create_statement": "-- Table: c01.tbl_customer\n\nCREATE TABLE c01.tbl_customer (\n    id integer NOT NULL PRIMARY KEY,    accountnumber character varying(40) NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character(1) NOT NULL,    suffix character varying(4) NOT NULL,    courtesy courtesy_enum NOT NULL,    dateofbirth date,    ssnumber character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    email character varying(150),    billingtypeid integer,    customertypeid integer,    customerclasscode character(2),    locationid integer,    customerbalance double precision,    totalbalance double precision,    deceaseddate date,    employmentstatus employment_status_enum NOT NULL,    gender gender_enum NOT NULL,    height double precision,    weight double precision,    maritalstatus marital_status_enum NOT NULL,    militarybranch military_branch_enum NOT NULL,    militarystatus military_status_enum NOT NULL,    studentstatus student_status_enum NOT NULL,    license character varying(50) NOT NULL,    billactive boolean NOT NULL,    billname character varying(50) NOT NULL,    billaddress1 character varying(40) NOT NULL,    billaddress2 character varying(40) NOT NULL,    billcity character varying(25) NOT NULL,    billstate character(2) NOT NULL,    billzip character varying(10) NOT NULL,    shipactive boolean NOT NULL,    shipname character varying(50) NOT NULL,    shipaddress1 character varying(40) NOT NULL,    shipaddress2 character varying(40) NOT NULL,    shipcity character varying(25) NOT NULL,    shipstate character(2) NOT NULL,    shipzip character varying(10) NOT NULL,    deliverydirections text NOT NULL,    commercialaccount boolean,    commercialacctcreditlimit double precision,    commercialacctterms character varying(50) NOT NULL,    block12hcfa boolean NOT NULL,    block13hcfa boolean NOT NULL,    basis basis_enum NOT NULL,    copaydollar double precision,    copaypercent double precision,    deductible double precision,    outofpocket double precision,    frequency frequency_enum NOT NULL,    monthsvalid integer NOT NULL,    hardship boolean NOT NULL,    signatureonfile date,    signaturetype character(1),    taxrateid integer,    doctor1_id integer,    doctor2_id integer,    emergencycontact text NOT NULL,    facilityid integer,    legalrepid integer,    referralid integer,    salesrepid integer,    accidenttype accident_type_enum NOT NULL,    stateofaccident character(2) NOT NULL,    dateofinjury date,    emergency boolean NOT NULL,    employmentrelated boolean NOT NULL,    firstconsultdate date,    returntoworkdate date,    icd9_1 character varying(6),    icd9_2 character varying(6),    icd9_3 character varying(6),    icd9_4 character varying(6),    postypeid integer,    setupdate date NOT NULL,    hippanote boolean NOT NULL,    supplierstandards boolean NOT NULL,    inactivedate date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    invoiceformid integer,    mir text NOT NULL,    collections boolean NOT NULL,    icd10_01 character varying(8),    icd10_02 character varying(8),    icd10_03 character varying(8),    icd10_04 character varying(8),    icd10_05 character varying(8),    icd10_06 character varying(8),    icd10_07 character varying(8),    icd10_08 character varying(8),    icd10_09 character varying(8),    icd10_10 character varying(8),    icd10_11 character varying(8),    icd10_12 character varying(8)\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_customer_insurance",
+    "column_count": "30",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_customer_insurance\n\nCREATE TABLE c01.tbl_customer_insurance (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    insurancecompanyid integer NOT NULL,    insurancetype character(2),    groupnumber character varying(50) NOT NULL,    policynumber character varying(50) NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character(1) NOT NULL,    suffix character varying(4) NOT NULL,    dateofbirth date,    gender gender_enum NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    mobile character varying(50) NOT NULL,    employer character varying(50) NOT NULL,    relationshipcode character(2),    paymentpercent integer,    rank integer,    basis insurance_basis_enum NOT NULL,    inactivedate date,    requesteligibility boolean NOT NULL,    requesteligibilityon date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    mir text NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_customer_notes",
+    "column_count": "10",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_customer_notes\n\nCREATE TABLE c01.tbl_customer_notes (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    notes text NOT NULL,    active boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    operator character varying(50),    callbackdate timestamp without time zone,    createdby smallint,    createdat timestamp without time zone\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_customerclass",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_customerclass\n\nCREATE TABLE c01.tbl_customerclass (\n    code character(2) NOT NULL PRIMARY KEY,    description character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_customertype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_customertype\n\nCREATE TABLE c01.tbl_customertype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_denial",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_denial\n\nCREATE TABLE c01.tbl_denial (\n    code character varying(6) NOT NULL PRIMARY KEY,    description character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_deposits",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_deposits\n\nCREATE TABLE c01.tbl_deposits (\n    customerid integer NOT NULL REFERENCES c01.tbl_order(customerid),    customerid integer NOT NULL PRIMARY KEY,    orderid integer NOT NULL REFERENCES c01.tbl_order(id),    orderid integer NOT NULL PRIMARY KEY,    amount numeric(18,2) NOT NULL,    date date NOT NULL,    paymentmethod payment_mode_enum NOT NULL,    notes text NOT NULL,    lastupdateuserid smallint NOT NULL,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_doctor",
+    "column_count": "29",
+    "description": "Stores healthcare provider information",
+    "create_statement": "-- Table: c01.tbl_doctor\n\nCREATE TABLE c01.tbl_doctor (\n    id integer NOT NULL PRIMARY KEY,    courtesy courtesy_enum NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character varying(1) NOT NULL,    suffix character varying(4) NOT NULL,    title character varying(50) NOT NULL,    typeid integer,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    licensenumber character varying(16) NOT NULL,    licenseexpired date,    medicaidnumber character varying(16) NOT NULL,    upinnumber character varying(11) NOT NULL,    otherid character varying(16) NOT NULL,    fedtaxid character varying(9) NOT NULL,    deanumber character varying(20) NOT NULL,    npi character varying(10),    pecosenrolled boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    mir text NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_doctortype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_doctortype\n\nCREATE TABLE c01.tbl_doctortype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_document_templates",
+    "column_count": "8",
+    "description": "Stores document templates for system-generated documents",
+    "create_statement": "-- Table: c01.tbl_document_templates\n\nCREATE TABLE c01.tbl_document_templates (\n    id integer NOT NULL PRIMARY KEY,    name character varying(100) NOT NULL,    description text,    templatetype character varying(50) NOT NULL,    content text NOT NULL,    isactive boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_eligibilityrequest",
+    "column_count": "12",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_eligibilityrequest\n\nCREATE TABLE c01.tbl_eligibilityrequest (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    customerinsuranceid integer NOT NULL,    region ecs_format_enum NOT NULL,    requestbatchid integer,    requesttime timestamp without time zone NOT NULL,    requesttext text NOT NULL,    responsebatchid integer,    responsetime timestamp without time zone,    responsetext text,    submissiontime timestamp without time zone,    submissiontext text\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_email_templates",
+    "column_count": "7",
+    "description": "Stores email templates for system-generated emails",
+    "create_statement": "-- Table: c01.tbl_email_templates\n\nCREATE TABLE c01.tbl_email_templates (\n    id integer NOT NULL PRIMARY KEY,    name character varying(100) NOT NULL,    subject character varying(200) NOT NULL,    body text NOT NULL,    isactive boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_facility",
+    "column_count": "20",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_facility\n\nCREATE TABLE c01.tbl_facility (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    medicareid character varying(50) NOT NULL,    medicaidid character varying(50) NOT NULL,    npi character varying(10),    postypeid integer,    defaultdeliveryweek delivery_week_enum NOT NULL,    directions text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    mir text NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_file_attachments",
+    "column_count": "9",
+    "description": "Stores file attachments for various records",
+    "create_statement": "-- Table: c01.tbl_file_attachments\n\nCREATE TABLE c01.tbl_file_attachments (\n    id integer NOT NULL PRIMARY KEY,    relatedtablename character varying(50) NOT NULL,    relatedrecordid integer NOT NULL,    filename character varying(255) NOT NULL,    filesize integer NOT NULL,    filetype character varying(100) NOT NULL,    filecontent bytea NOT NULL,    uploadedbyuserid integer NOT NULL,    uploaddatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_hao",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_hao\n\nCREATE TABLE c01.tbl_hao (\n    code character varying(10) NOT NULL PRIMARY KEY,    description text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_icd10",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_icd10\n\nCREATE TABLE c01.tbl_icd10 (\n    code character varying(8) NOT NULL PRIMARY KEY,    description character varying(255) NOT NULL,    header boolean NOT NULL,    activedate date,    inactivedate date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_icd9",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_icd9\n\nCREATE TABLE c01.tbl_icd9 (\n    code character varying(6) NOT NULL PRIMARY KEY,    description character varying(255) NOT NULL,    activedate date,    inactivedate date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_image",
+    "column_count": "12",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_image\n\nCREATE TABLE c01.tbl_image (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    type character varying(50) NOT NULL,    description text,    customerid integer,    orderid integer,    invoiceid integer,    doctorid integer,    cmnformid integer,    thumbnail bytea,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_insurancecompany",
+    "column_count": "31",
+    "description": "Stores insurance company information",
+    "create_statement": "-- Table: c01.tbl_insurancecompany\n\nCREATE TABLE c01.tbl_insurancecompany (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    title character varying(50) NOT NULL,    ecsformat ecs_format_enum NOT NULL,    type integer,    groupid integer,    pricecodeid integer,    expectedpercent double precision,    basis basis_enum NOT NULL,    printhaooninvoice boolean,    printinvoninvoice boolean,    medicarenumber character varying(50) NOT NULL,    medicaidnumber character varying(50) NOT NULL,    officeallynumber character varying(50) NOT NULL,    zirmednumber character varying(50) NOT NULL,    availitynumber character varying(50) NOT NULL,    abilitynumber character varying(50) NOT NULL,    abilityeligibilitypayerid integer,    invoiceformid integer,    mir text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_insurancecompanygroup",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_insurancecompanygroup\n\nCREATE TABLE c01.tbl_insurancecompanygroup (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_insurancecompanytype",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_insurancecompanytype\n\nCREATE TABLE c01.tbl_insurancecompanytype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_insurancetype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_insurancetype\n\nCREATE TABLE c01.tbl_insurancetype (\n    code character varying(2) NOT NULL PRIMARY KEY,    description character varying(40) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_inventory",
+    "column_count": "14",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_inventory\n\nCREATE TABLE c01.tbl_inventory (\n    warehouseid integer NOT NULL PRIMARY KEY,    inventoryitemid integer NOT NULL PRIMARY KEY,    onhand double precision NOT NULL,    committed double precision NOT NULL,    onorder double precision NOT NULL,    unavailable double precision NOT NULL,    rented double precision NOT NULL,    sold double precision NOT NULL,    backordered double precision NOT NULL,    reorderpoint double precision NOT NULL,    costperunit numeric(18,2) NOT NULL,    totalcost numeric(18,2) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_inventory_transaction",
+    "column_count": "19",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_inventory_transaction\n\nCREATE TABLE c01.tbl_inventory_transaction (\n    id integer NOT NULL PRIMARY KEY,    inventoryitemid integer NOT NULL,    warehouseid integer NOT NULL,    typeid integer NOT NULL,    date date NOT NULL,    quantity double precision,    cost numeric(18,2),    description character varying(30),    serialid integer,    vendorid integer,    customerid integer,    purchaseorderid integer,    purchaseorderdetailsid integer,    invoiceid integer,    manufacturerid integer,    orderdetailsid integer,    orderid integer,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_inventory_transaction_type",
+    "column_count": "10",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_inventory_transaction_type\n\nCREATE TABLE c01.tbl_inventory_transaction_type (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    onhand integer NOT NULL,    committed integer NOT NULL,    onorder integer NOT NULL,    unavailable integer NOT NULL,    rented integer NOT NULL,    sold integer NOT NULL,    backordered integer NOT NULL,    adjtotalcost integer NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_inventoryitem",
+    "column_count": "26",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_inventoryitem\n\nCREATE TABLE c01.tbl_inventoryitem (\n    id integer NOT NULL PRIMARY KEY,    inventorycode character varying(50) NOT NULL,    name character varying(100) NOT NULL,    modelnumber character varying(50) NOT NULL,    barcode character varying(50) NOT NULL,    barcodetype character varying(50) NOT NULL,    vendorid integer,    manufacturerid integer,    producttypeid integer,    predefinedtextid integer,    service boolean NOT NULL,    serialized boolean NOT NULL,    o2tank boolean NOT NULL,    basis basis_enum NOT NULL,    flatrate boolean NOT NULL,    flatrateamount double precision,    percentage boolean NOT NULL,    percentageamount double precision NOT NULL,    frequency inventory_period_enum NOT NULL,    commissionpaidat commission_paid_enum NOT NULL,    purchaseprice numeric(18,2) NOT NULL,    inactive boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    userfield1 character varying(100) NOT NULL,    userfield2 character varying(100) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_invoice",
+    "column_count": "43",
+    "description": "Stores invoice header information",
+    "create_statement": "-- Table: c01.tbl_invoice\n\nCREATE TABLE c01.tbl_invoice (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    orderid integer,    approved boolean NOT NULL,    invoicedate date,    invoicebalance numeric(18,2) NOT NULL,    submittedto submitted_to_enum NOT NULL,    submittedby character varying(50),    submitteddate date,    submittedbatch character varying(50),    customerinsurance1_id integer,    customerinsurance2_id integer,    customerinsurance3_id integer,    customerinsurance4_id integer,    icd9_1 character varying(6),    icd9_2 character varying(6),    icd9_3 character varying(6),    icd9_4 character varying(6),    doctorid integer,    postypeid integer,    taxrateid integer,    taxratepercent double precision,    discount double precision,    acceptassignment boolean NOT NULL,    claimnote character varying(80),    facilityid integer,    referralid integer,    salesrepid integer,    archived boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    icd10_01 character varying(8),    icd10_02 character varying(8),    icd10_03 character varying(8),    icd10_04 character varying(8),    icd10_05 character varying(8),    icd10_06 character varying(8),    icd10_07 character varying(8),    icd10_08 character varying(8),    icd10_09 character varying(8),    icd10_10 character varying(8),    icd10_11 character varying(8),    icd10_12 character varying(8)\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_invoice_transaction",
+    "column_count": "18",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_invoice_transaction\n\nCREATE TABLE c01.tbl_invoice_transaction (\n    id integer NOT NULL PRIMARY KEY,    invoicedetailsid integer NOT NULL,    invoiceid integer NOT NULL,    customerid integer NOT NULL,    insurancecompanyid integer,    customerinsuranceid integer,    transactiontypeid integer NOT NULL,    transactiondate date,    amount numeric(18,2) NOT NULL,    quantity double precision NOT NULL,    taxes numeric(18,2) NOT NULL,    deductible numeric(18,2) NOT NULL,    batchnumber character varying(20) NOT NULL,    comments text,    extra text,    approved boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_invoice_transactiontype",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_invoice_transactiontype\n\nCREATE TABLE c01.tbl_invoice_transactiontype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    balance integer NOT NULL,    allowable integer NOT NULL,    amount integer NOT NULL,    taxes integer NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_invoicedetails",
+    "column_count": "56",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_invoicedetails\n\nCREATE TABLE c01.tbl_invoicedetails (\n    id integer NOT NULL PRIMARY KEY,    invoiceid integer NOT NULL,    customerid integer NOT NULL,    inventoryitemid integer NOT NULL,    pricecodeid integer NOT NULL,    orderid integer,    orderdetailsid integer,    balance numeric(18,2) NOT NULL,    billableamount numeric(18,2) NOT NULL,    allowableamount numeric(18,2) NOT NULL,    taxes numeric(18,2) NOT NULL,    quantity double precision NOT NULL,    invoicedate date,    dosfrom date NOT NULL,    dosto date,    billingcode character varying(50),    modifier1 character varying(8) NOT NULL,    modifier2 character varying(8) NOT NULL,    modifier3 character varying(8) NOT NULL,    modifier4 character varying(8) NOT NULL,    dxpointer character varying(50),    dxpointer10 character varying(50),    billingmonth integer NOT NULL,    sendcmn_rx_w_invoice boolean NOT NULL,    specialcode character varying(50),    reviewcode character varying(50),    medicallyunnecessary boolean NOT NULL,    authorizationnumber character varying(50),    authorizationtypeid integer,    invoicenotes character varying(255),    invoicerecord character varying(255),    cmnformid integer,    haocode character varying(10),    haodescription character varying(100),    billins1 boolean NOT NULL,    billins2 boolean NOT NULL,    billins3 boolean NOT NULL,    billins4 boolean NOT NULL,    hardship boolean NOT NULL,    showspandates boolean NOT NULL,    paymentamount numeric(18,2) NOT NULL,    writeoffamount numeric(18,2) NOT NULL,    currentpayer payer_enum NOT NULL,    pendings smallint NOT NULL,    submits smallint NOT NULL,    payments smallint NOT NULL,    submitteddate date,    submitted boolean NOT NULL,    currentinsurancecompanyid integer,    currentcustomerinsuranceid integer,    acceptassignment boolean NOT NULL,    deductibleamount numeric(18,2) NOT NULL,    drugnotefield character varying(20),    drugcontrolnumber character varying(50),    nopayins1 boolean NOT NULL,    pointericd10 smallint NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_invoiceform",
+    "column_count": "10",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_invoiceform\n\nCREATE TABLE c01.tbl_invoiceform (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    reportfilename character varying(50) NOT NULL,    margintop double precision NOT NULL,    marginleft double precision NOT NULL,    marginbottom double precision NOT NULL,    marginright double precision NOT NULL,    specialcoding character varying(20),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_kit",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_kit\n\nCREATE TABLE c01.tbl_kit (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_kitdetails",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_kitdetails\n\nCREATE TABLE c01.tbl_kitdetails (\n    id integer NOT NULL PRIMARY KEY,    kitid integer NOT NULL REFERENCES c01.tbl_kit(id),    warehouseid integer NOT NULL,    inventoryitemid integer NOT NULL,    pricecodeid integer,    quantity integer NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_legalrep",
+    "column_count": "17",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_legalrep\n\nCREATE TABLE c01.tbl_legalrep (\n    id integer NOT NULL PRIMARY KEY,    courtesy courtesy_enum NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character varying(1) NOT NULL,    suffix character varying(4) NOT NULL,    firmname character varying(50),    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    officephone character varying(50) NOT NULL,    mobile character varying(50) NOT NULL,    pager character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_location",
+    "column_count": "27",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_location\n\nCREATE TABLE c01.tbl_location (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    code character varying(40) NOT NULL,    contact character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    email character varying(50),    fedtaxid character varying(50) NOT NULL,    taxidtype tax_id_type_enum NOT NULL,    npi character varying(10),    postypeid integer,    warehouseid integer,    taxrateid integer,    invoiceformid integer,    pricecodeid integer,    participatingprovider boolean,    printinfoondelpupticket boolean,    printinfooninvoiceacctstatements boolean,    printinfoonpartprovider boolean,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_manufacturer",
+    "column_count": "14",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_manufacturer\n\nCREATE TABLE c01.tbl_manufacturer (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    accountnumber character varying(40) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_medicalconditions",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_medicalconditions\n\nCREATE TABLE c01.tbl_medicalconditions (\n    code character varying(6) NOT NULL PRIMARY KEY,    description character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_notification_queue",
+    "column_count": "9",
+    "description": "Queues notifications for processing",
+    "create_statement": "-- Table: c01.tbl_notification_queue\n\nCREATE TABLE c01.tbl_notification_queue (\n    id integer NOT NULL PRIMARY KEY,    notificationtype character varying(50) NOT NULL,    recipientid integer NOT NULL,    subject character varying(200) NOT NULL,    message text NOT NULL,    priority integer NOT NULL,    status character varying(20) NOT NULL,    createddatetime timestamp without time zone NOT NULL,    processeddatetime timestamp without time zone\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_object",
+    "column_count": "3",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_object\n\nCREATE TABLE c01.tbl_object (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    description character varying(50) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_order",
+    "column_count": "50",
+    "description": "Stores order header information",
+    "create_statement": "-- Table: c01.tbl_order\n\nCREATE TABLE c01.tbl_order (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL PRIMARY KEY,    approved boolean NOT NULL,    retailsales boolean NOT NULL,    orderdate date,    deliverydate date,    billdate date,    enddate date,    shippingmethodid integer,    specialinstructions text,    ticketmesage character varying(50),    customerinsurance1_id integer,    customerinsurance2_id integer,    customerinsurance3_id integer,    customerinsurance4_id integer,    icd9_1 character varying(6),    icd9_2 character varying(6),    icd9_3 character varying(6),    icd9_4 character varying(6),    doctorid integer,    postypeid integer,    takenby character varying(50),    discount double precision,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL,    saletype sale_type_enum NOT NULL,    state order_state_enum NOT NULL,    mir text NOT NULL,    acceptassignment boolean NOT NULL,    claimnote character varying(80),    facilityid integer,    referralid integer,    salesrepid integer,    locationid integer,    archived boolean NOT NULL,    takenat timestamp without time zone,    icd10_01 character varying(8),    icd10_02 character varying(8),    icd10_03 character varying(8),    icd10_04 character varying(8),    icd10_05 character varying(8),    icd10_06 character varying(8),    icd10_07 character varying(8),    icd10_08 character varying(8),    icd10_09 character varying(8),    icd10_10 character varying(8),    icd10_11 character varying(8),    icd10_12 character varying(8),    userfield1 character varying(100) NOT NULL,    userfield2 character varying(100) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_order_survey",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_order_survey\n\nCREATE TABLE c01.tbl_order_survey (\n    id integer NOT NULL PRIMARY KEY,    surveyid integer NOT NULL REFERENCES c01.tbl_survey(id),    orderid integer NOT NULL,    form text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_orderdetails",
+    "column_count": "67",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_orderdetails\n\nCREATE TABLE c01.tbl_orderdetails (\n    id integer NOT NULL PRIMARY KEY,    orderid integer NOT NULL REFERENCES c01.tbl_order(id),    customerid integer NOT NULL REFERENCES c01.tbl_order(customerid),    customerid integer NOT NULL REFERENCES c01.tbl_order(customerid),    serialnumber character varying(50),    inventoryitemid integer NOT NULL,    pricecodeid integer NOT NULL,    salerenttype sale_rent_type_enum NOT NULL,    serialid integer,    billableprice numeric(18,2) NOT NULL,    allowableprice numeric(18,2) NOT NULL,    taxable boolean NOT NULL,    flatrate boolean NOT NULL,    dosfrom date NOT NULL,    dosto date,    pickupdate date,    showspandates boolean NOT NULL,    orderedquantity double precision NOT NULL,    orderedunits character varying(50),    orderedwhen period_enum NOT NULL,    orderedconverter double precision NOT NULL,    billedquantity double precision NOT NULL,    billedunits character varying(50),    billedwhen period_enum NOT NULL,    billedconverter double precision NOT NULL,    deliveryquantity double precision NOT NULL,    deliveryunits character varying(50),    deliveryconverter double precision NOT NULL,    billingcode character varying(50),    modifier1 character varying(8) NOT NULL,    modifier2 character varying(8) NOT NULL,    modifier3 character varying(8) NOT NULL,    modifier4 character varying(8) NOT NULL,    dxpointer character varying(50),    billingmonth integer NOT NULL,    billitemon bill_item_enum NOT NULL,    authorizationnumber character varying(50),    authorizationtypeid integer,    reasonforpickup character varying(50),    sendcmn_rx_w_invoice boolean NOT NULL,    medicallyunnecessary boolean NOT NULL,    sale boolean NOT NULL,    specialcode character varying(50),    reviewcode character varying(50),    nextorderid integer REFERENCES c01.tbl_order(id),    reoccuringid integer,    cmnformid integer,    haocode character varying(10),    state order_state_enum NOT NULL,    billins1 boolean NOT NULL,    billins2 boolean NOT NULL,    billins3 boolean NOT NULL,    billins4 boolean NOT NULL,    enddate date,    mir text NOT NULL,    nextbillingdate date,    warehouseid integer NOT NULL,    acceptassignment boolean NOT NULL,    drugnotefield character varying(20),    drugcontrolnumber character varying(50),    nopayins1 boolean NOT NULL,    pointericd10 smallint NOT NULL,    dxpointer10 character varying(50),    \"MIR.ORDER\" text NOT NULL,    haodescription character varying(100),    userfield1 character varying(100) NOT NULL,    userfield2 character varying(100) NOT NULL,    authorizationexpirationdate date\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_payer",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_payer\n\nCREATE TABLE c01.tbl_payer (\n    insurancecompanyid integer NOT NULL PRIMARY KEY,    participatingprovider boolean NOT NULL,    extractorderingphysician boolean NOT NULL,    extractreferringphysician boolean NOT NULL,    extractrenderingprovider boolean NOT NULL,    taxonomycodeprefix character varying(10) NOT NULL,    lastupdateuserid smallint NOT NULL,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_paymentplan",
+    "column_count": "9",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_paymentplan\n\nCREATE TABLE c01.tbl_paymentplan (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL,    period payment_period_enum NOT NULL,    firstpayment date NOT NULL,    paymentcount integer NOT NULL,    paymentamount numeric(18,2) NOT NULL,    details text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_paymentplan_payments",
+    "column_count": "11",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_paymentplan_payments\n\nCREATE TABLE c01.tbl_paymentplan_payments (\n    id integer NOT NULL PRIMARY KEY,    paymentplanid integer NOT NULL,    customerid integer NOT NULL,    \"Index\" integer NOT NULL,    duedate date NOT NULL,    dueamount numeric(18,2) NOT NULL,    paymentdate date,    paymentamount numeric(18,2) NOT NULL,    details text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_permissions",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_permissions\n\nCREATE TABLE c01.tbl_permissions (\n    userid smallint NOT NULL PRIMARY KEY,    objectid smallint NOT NULL PRIMARY KEY,    add_edit boolean NOT NULL,    delete boolean NOT NULL,    process boolean NOT NULL,    view boolean NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_postype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_postype\n\nCREATE TABLE c01.tbl_postype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_predefinedtext",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_predefinedtext\n\nCREATE TABLE c01.tbl_predefinedtext (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    type document_type_enum NOT NULL,    text text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_price_history",
+    "column_count": "11",
+    "description": "Historical record of product price changes",
+    "create_statement": "-- Table: c01.tbl_price_history\n\nCREATE TABLE c01.tbl_price_history (\n    id integer NOT NULL PRIMARY KEY,    productid integer NOT NULL,    pricetype character varying(20) NOT NULL,    oldprice numeric(18,2),    newprice numeric(18,2) NOT NULL,    effectivedate date NOT NULL,    enddate date,    reason text,    changedbyuserid integer NOT NULL REFERENCES c01.tbl_user(id),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_pricecode",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_pricecode\n\nCREATE TABLE c01.tbl_pricecode (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_product_category",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_product_category\n\nCREATE TABLE c01.tbl_product_category (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    description text,    parentcategoryid integer,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_product_history",
+    "column_count": "10",
+    "description": "Tracks changes to product information",
+    "create_statement": "-- Table: c01.tbl_product_history\n\nCREATE TABLE c01.tbl_product_history (\n    id integer NOT NULL PRIMARY KEY,    productid integer NOT NULL,    changetype character varying(20) NOT NULL,    field character varying(50) NOT NULL,    oldvalue text,    newvalue text,    changedate timestamp without time zone NOT NULL,    changedbyuserid integer NOT NULL REFERENCES c01.tbl_user(id),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_product_price",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_product_price\n\nCREATE TABLE c01.tbl_product_price (\n    id integer NOT NULL PRIMARY KEY,    productid integer NOT NULL,    pricelevel integer NOT NULL,    price numeric(10,2) NOT NULL,    startdate date NOT NULL,    enddate date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_productgroup",
+    "column_count": "6",
+    "description": "Hierarchical grouping of products",
+    "create_statement": "-- Table: c01.tbl_productgroup\n\nCREATE TABLE c01.tbl_productgroup (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    description text,    parentgroupid integer REFERENCES c01.tbl_productgroup(id),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_producttype",
+    "column_count": "5",
+    "description": "Stores different types of products",
+    "create_statement": "-- Table: c01.tbl_producttype\n\nCREATE TABLE c01.tbl_producttype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    description text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_provider",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_provider\n\nCREATE TABLE c01.tbl_provider (\n    id integer NOT NULL PRIMARY KEY,    locationid integer NOT NULL,    insurancecompanyid integer NOT NULL,    providernumber character varying(25) NOT NULL,    providernumbertype character varying(6) NOT NULL,    password character varying(20) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_providernumbertype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_providernumbertype\n\nCREATE TABLE c01.tbl_providernumbertype (\n    code character varying(6) NOT NULL PRIMARY KEY,    description character varying(100) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_purchase_order_details",
+    "column_count": "7",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_purchase_order_details\n\nCREATE TABLE c01.tbl_purchase_order_details (\n    id integer NOT NULL PRIMARY KEY,    purchaseorderid integer NOT NULL,    productid integer NOT NULL,    quantity integer NOT NULL,    unitprice numeric(10,2) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_purchaseorder",
+    "column_count": "38",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_purchaseorder\n\nCREATE TABLE c01.tbl_purchaseorder (\n    id integer NOT NULL PRIMARY KEY,    number character varying(40) NOT NULL,    vendorid integer NOT NULL,    orderdate date,    createddate date,    createduserid smallint,    submitteddate date,    submitteduserid smallint,    approved boolean NOT NULL,    cost numeric(18,2) NOT NULL,    freight numeric(18,2) NOT NULL,    tax numeric(18,2) NOT NULL,    totaldue numeric(18,2) NOT NULL,    shipvia shipping_method_enum,    fob character varying(50),    vendorsalesrep character varying(50),    terms text,    confirmationnumber character varying(50),    locationid integer,    taxrateid integer,    reoccuring boolean NOT NULL,    archived boolean NOT NULL,    shiptoname character varying(50) NOT NULL,    shiptoaddress1 character varying(40) NOT NULL,    shiptoaddress2 character varying(40) NOT NULL,    shiptocity character varying(25) NOT NULL,    shiptostate character varying(2) NOT NULL,    shiptozip character varying(10) NOT NULL,    shiptophone character varying(50) NOT NULL,    companyname character varying(50) NOT NULL,    companyaddress1 character varying(40) NOT NULL,    companyaddress2 character varying(40) NOT NULL,    companycity character varying(25) NOT NULL,    companystate character varying(2) NOT NULL,    companyzip character varying(10) NOT NULL,    companyphone character varying(50),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_referral",
+    "column_count": "20",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_referral\n\nCREATE TABLE c01.tbl_referral (\n    id integer NOT NULL PRIMARY KEY,    courtesy courtesy_enum NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character varying(1) NOT NULL,    suffix character varying(4) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    homephone character varying(50) NOT NULL,    workphone character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    mobile character varying(50) NOT NULL,    employer character varying(50) NOT NULL,    referraltypeid integer,    lastcontacted date,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_referraltype",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_referraltype\n\nCREATE TABLE c01.tbl_referraltype (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_relationship",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_relationship\n\nCREATE TABLE c01.tbl_relationship (\n    code character(2) NOT NULL PRIMARY KEY,    description character varying(100) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_report_schedules",
+    "column_count": "10",
+    "description": "Manages scheduled report generation",
+    "create_statement": "-- Table: c01.tbl_report_schedules\n\nCREATE TABLE c01.tbl_report_schedules (\n    id integer NOT NULL PRIMARY KEY,    reportname character varying(100) NOT NULL,    schedule character varying(50) NOT NULL,    parameters text,    recipients text NOT NULL,    isactive boolean NOT NULL,    lastrundatetime timestamp without time zone,    nextrundatetime timestamp without time zone,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_salesrep",
+    "column_count": "16",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_salesrep\n\nCREATE TABLE c01.tbl_salesrep (\n    id integer NOT NULL PRIMARY KEY,    courtesy courtesy_enum NOT NULL,    firstname character varying(25) NOT NULL,    lastname character varying(30) NOT NULL,    middlename character varying(1) NOT NULL,    suffix character varying(4) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    homephone character varying(50) NOT NULL,    mobile character varying(50) NOT NULL,    pager character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_serial",
+    "column_count": "32",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_serial\n\nCREATE TABLE c01.tbl_serial (\n    id integer NOT NULL PRIMARY KEY,    serialnumber character varying(50) NOT NULL,    inventoryitemid integer NOT NULL,    manufaturerserialnumber character varying(50) NOT NULL,    modelnumber character varying(50) NOT NULL,    status serial_status_enum NOT NULL,    ownrent own_rent_enum NOT NULL,    currentcustomerid integer,    lastcustomerid integer,    manufacturerid integer,    vendorid integer,    warehouseid integer,    purchaseorderid integer,    purchaseamount double precision NOT NULL,    purchasedate date,    firstrented date,    solddate date,    saleprice numeric(18,2),    salvagevalue numeric(18,2),    lotnumber character varying(50) NOT NULL,    lotnumberexpires timestamp without time zone,    lengthofwarranty character varying(50) NOT NULL,    warranty character varying(50) NOT NULL,    monthsrented character varying(50) NOT NULL,    maintenancerecord text NOT NULL,    nextmaintenancedate date,    consignmenttype character varying(20),    consignmentname character varying(50),    consignmentdate timestamp without time zone,    vendorstocknumber character varying(20),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_serial_maintenance",
+    "column_count": "12",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_serial_maintenance\n\nCREATE TABLE c01.tbl_serial_maintenance (\n    id integer NOT NULL PRIMARY KEY,    serialid integer NOT NULL,    additionalequipment text,    descriptionofproblem text,    descriptionofwork text,    maintenancerecord text,    laborhours character varying(255),    technician character varying(255),    maintenancedue date,    maintenancecost numeric(18,2) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_serial_transaction",
+    "column_count": "12",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_serial_transaction\n\nCREATE TABLE c01.tbl_serial_transaction (\n    id integer NOT NULL PRIMARY KEY,    typeid integer NOT NULL,    serialid integer NOT NULL,    transactiondatetime timestamp without time zone NOT NULL,    vendorid integer,    warehouseid integer,    customerid integer,    orderid integer,    orderdetailsid integer,    lotnumber character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_serial_transaction_type",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_serial_transaction_type\n\nCREATE TABLE c01.tbl_serial_transaction_type (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_sessions",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_sessions\n\nCREATE TABLE c01.tbl_sessions (\n    id integer NOT NULL PRIMARY KEY,    userid smallint NOT NULL,    logintime timestamp without time zone NOT NULL,    lastupdatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_shipping_history",
+    "column_count": "12",
+    "description": "Tracks shipping status and delivery information",
+    "create_statement": "-- Table: c01.tbl_shipping_history\n\nCREATE TABLE c01.tbl_shipping_history (\n    id integer NOT NULL PRIMARY KEY,    customerid integer NOT NULL REFERENCES c01.tbl_order(customerid),    orderid integer NOT NULL REFERENCES c01.tbl_order(id),    shippingmethodid integer NOT NULL,    trackingnumber character varying(100),    shippeddate timestamp without time zone NOT NULL,    estimateddeliverydate date,    actualdeliverydate date,    status character varying(50) NOT NULL,    notes text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_shipping_tracking",
+    "column_count": "9",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_shipping_tracking\n\nCREATE TABLE c01.tbl_shipping_tracking (\n    id integer NOT NULL PRIMARY KEY,    orderid integer NOT NULL,    trackingnumber character varying(50) NOT NULL,    shipdate date NOT NULL,    estimateddeliverydate date,    actualdeliverydate date,    status character varying(50),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_shippingmethod",
+    "column_count": "5",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_shippingmethod\n\nCREATE TABLE c01.tbl_shippingmethod (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    type character varying(50),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_signaturetype",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_signaturetype\n\nCREATE TABLE c01.tbl_signaturetype (\n    code character(1) NOT NULL PRIMARY KEY,    description character varying(100) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_submitter",
+    "column_count": "16",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_submitter\n\nCREATE TABLE c01.tbl_submitter (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    number character varying(16) NOT NULL,    password character varying(50) NOT NULL,    ecsformat ecs_format_enum,    production boolean NOT NULL,    contactname character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone1 character varying(50) NOT NULL,    lastbatchnumber character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_survey",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_survey\n\nCREATE TABLE c01.tbl_survey (\n    id integer NOT NULL PRIMARY KEY,    name character varying(100) NOT NULL,    description character varying(200) NOT NULL,    template text NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_system_settings",
+    "column_count": "5",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_system_settings\n\nCREATE TABLE c01.tbl_system_settings (\n    settingkey character varying(50) NOT NULL PRIMARY KEY,    settingvalue text NOT NULL,    settingdescription text,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_taxrate",
+    "column_count": "8",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_taxrate\n\nCREATE TABLE c01.tbl_taxrate (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    statetax double precision,    countytax double precision,    citytax double precision,    othertax double precision,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_user",
+    "column_count": "6",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_user\n\nCREATE TABLE c01.tbl_user (\n    id smallint NOT NULL PRIMARY KEY,    login character varying(16) NOT NULL,    password character varying(32) NOT NULL,    email character varying(150) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_user_activity_log",
+    "column_count": "7",
+    "description": "Logs user activities for audit purposes",
+    "create_statement": "-- Table: c01.tbl_user_activity_log\n\nCREATE TABLE c01.tbl_user_activity_log (\n    id integer NOT NULL PRIMARY KEY,    userid integer NOT NULL,    activitytype character varying(50) NOT NULL,    activitydetails text NOT NULL,    ipaddress character varying(45),    useragent character varying(255),    activitydatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_user_location",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_user_location\n\nCREATE TABLE c01.tbl_user_location (\n    userid smallint NOT NULL,    userid smallint NOT NULL PRIMARY KEY,    locationid integer NOT NULL,    locationid integer NOT NULL PRIMARY KEY\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_user_notifications",
+    "column_count": "5",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_user_notifications\n\nCREATE TABLE c01.tbl_user_notifications (\n    id integer NOT NULL PRIMARY KEY,    type character varying(50) NOT NULL,    args character varying(255) NOT NULL,    userid smallint NOT NULL,    datetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_variables",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_variables\n\nCREATE TABLE c01.tbl_variables (\n    name character varying(31) NOT NULL PRIMARY KEY,    value character varying(255) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_vendor",
+    "column_count": "18",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_vendor\n\nCREATE TABLE c01.tbl_vendor (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    accountnumber character varying(40) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character varying(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    comments text,    fobdelivery character varying(50),    terms character varying(50),    shipvia character varying(50),    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "c01.tbl_warehouse",
+    "column_count": "13",
+    "description": "No comment",
+    "create_statement": "-- Table: c01.tbl_warehouse\n\nCREATE TABLE c01.tbl_warehouse (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    contact character varying(50) NOT NULL,    address1 character varying(40) NOT NULL,    address2 character varying(40) NOT NULL,    city character varying(25) NOT NULL,    state character(2) NOT NULL,    zip character varying(10) NOT NULL,    phone character varying(50) NOT NULL,    phone2 character varying(50) NOT NULL,    fax character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "dmeworks.tbl_insurancecompanygroup",
+    "column_count": "4",
+    "description": "No comment",
+    "create_statement": "-- Table: dmeworks.tbl_insurancecompanygroup\n\nCREATE TABLE dmeworks.tbl_insurancecompanygroup (\n    id integer NOT NULL PRIMARY KEY,    name character varying(50) NOT NULL,    lastupdateuserid smallint,    lastupdatedatetime timestamp without time zone NOT NULL\n);\n"
+  },
+  {
+    "table_name": "dmeworks.tbl_variables",
+    "column_count": "2",
+    "description": "No comment",
+    "create_statement": "-- Table: dmeworks.tbl_variables\n\nCREATE TABLE dmeworks.tbl_variables (\n    name character varying(31) NOT NULL PRIMARY KEY,    value character varying(255) NOT NULL\n);\n"
+  },
+  {
+    "table_name": "dmeworks.tbl_zipcode",
+    "column_count": "3",
+    "description": "No comment",
+    "create_statement": "-- Table: dmeworks.tbl_zipcode\n\nCREATE TABLE dmeworks.tbl_zipcode (\n    zip character varying(10) NOT NULL PRIMARY KEY,    state character varying(2) NOT NULL,    city character varying(30) NOT NULL\n);\n"
+  }
+]
